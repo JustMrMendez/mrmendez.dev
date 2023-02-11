@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@skeletonlabs/skeleton': ^0.124.2
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/kit': ^1.5.0
   '@tailwindcss/line-clamp': ^0.4.2
@@ -25,6 +26,7 @@ specifiers:
   vite: ^4.0.0
 
 devDependencies:
+  '@skeletonlabs/skeleton': 0.124.2
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.5
   '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.6
@@ -324,6 +326,12 @@ packages:
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
+    dev: true
+
+  /@skeletonlabs/skeleton/0.124.2:
+    resolution: {integrity: sha512-SQ0tgXXEj/QJ5BSA+UwKdSMADW5Xt+5iNpks1y94YnX2iwAY80MlffEfip+//VXYayeGvzx4xiU4//MpK9+Zgg==}
+    dependencies:
+      svelte: 3.55.1
     dev: true
 
   /@sveltejs/adapter-auto/2.0.0_@sveltejs+kit@1.5.5:
