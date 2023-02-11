@@ -1,43 +1,36 @@
 <script lang="ts">
-	import Sidebar from './Sidebar.svelte';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
-	import Hamburger from './Hamburger.svelte';
-	let open = false;
+	export let open: boolean;
 </script>
 
-<Hamburger bind:open />
-<Sidebar bind:open />
-<div class="sticky top-0 z-10  px-6 py-1 backdrop-blur-sm">
-	<div class="container mx-auto flex w-full items-center justify-between">
-		<h3 class="-mt-1 p-2 md:p-0">
-			<span class="text-error-500-400-token">{'<Mr'}</span>Mendez<span class={open ? 'hidden' : ''}
-				>.dev</span
-			><span class="text-error-900-50-token">{'/>'}</span>
-		</h3>
-		<nav class="group list-nav hidden md:block">
-			<ul class="flex items-end">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
+	on:click={() => (open = false)}
+	class="absolute min-h-full  min-w-full bg-black/25 backdrop-blur-sm transition-all duration-300 md:hidden {open
+		? 'z-10 '
+		: '-z-10 opacity-0 '}"
+/>
+<div
+	class="fixed right-0 z-20 h-full w-2/3 p-2  transition-all duration-500 bg-surface-50-900-token {open
+		? ''
+		: ' translate-x-full'}"
+>
+	<div class="flex h-full w-full flex-col justify-around py-10">
+		<nav class="list-nav flex-grow">
+			<ul>
 				<li>
-					<a
-						class="rounded px-2 transition-all duration-300  hover:!opacity-100 group-hover:opacity-50"
-						href="/">Home</a
-					>
+					<a class="" href="/">Home</a>
 				</li>
 				<li>
-					<a
-						class="rounded px-2 transition-all duration-300  hover:!opacity-100 group-hover:opacity-50"
-						href="/about">About</a
-					>
+					<a class="" href="/about">About</a>
 				</li>
 				<li>
-					<a
-						class="rounded px-2 transition-all duration-300  hover:!opacity-100 group-hover:opacity-50"
-						href="/blog">Blog</a
-					>
+					<a class="" href="/blog">Blog</a>
 				</li>
 			</ul>
 		</nav>
-		<div class="hidden gap-3 md:flex">
-			<div class="hidden md:block">
+		<div class="flex gap-3">
+			<div class="flex-grow">
 				<LightSwitch />
 			</div>
 			<a href="https:twitter.com/justmrmendez/" target="_blank" rel="noreferrer">

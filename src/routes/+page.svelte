@@ -1,1 +1,5 @@
-<h1 class="text-2xl">This is a test</h1>
+<script>
+	import Hero from './Hero.svelte';
+</script>
+
+<Hero />
