@@ -1,13 +1,17 @@
 <script lang="ts">
 	import Sidebar from './Sidebar.svelte';
-	import { LightSwitch } from '@skeletonlabs/skeleton';
+	import { LightSwitch, ProgressBar } from '@skeletonlabs/skeleton';
 	import Hamburger from './Hamburger.svelte';
+	export let maxScroll: number;
+	export let scrollY: number;
 	let open = false;
 </script>
 
 <Hamburger bind:open />
 <Sidebar bind:open />
-<div class="sticky top-0 z-10  px-6 py-1 backdrop-blur-sm">
+<div
+	class="sticky top-0 z-10  border-b bg-surface-200/40 py-1 shadow-sm backdrop-blur border-surface-50-900-token dark:bg-surface-900/40 md:px-6"
+>
 	<div class="container mx-auto flex w-full items-center justify-between">
 		<h3 class="-mt-1 p-2 md:p-0">
 			<span class="text-error-500-400-token">{'<Mr'}</span>Mendez<span class={open ? 'hidden' : ''}
@@ -66,4 +70,5 @@
 			</a>
 		</div>
 	</div>
+	<ProgressBar label="Progress Bar" value={scrollY} max={maxScroll} height="h-1" /> 
 </div>

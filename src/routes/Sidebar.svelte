@@ -6,16 +6,16 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	on:click={() => (open = false)}
-	class="absolute min-h-full  min-w-full bg-black/25 backdrop-blur-sm transition-all duration-300 md:hidden {open
-		? 'z-10 '
+	class="fixed min-h-screen  min-w-full bg-black/25 backdrop-blur-sm transition-all duration-300 md:hidden {open
+		? 'z-20 '
 		: '-z-10 opacity-0 '}"
 />
 <div
-	class="fixed right-0 z-20 h-full w-2/3 p-2  transition-all duration-500 bg-surface-50-900-token {open
+	class="sidebar fixed right-0 z-20 h-full w-2/3 p-2  transition-all duration-500 bg-surface-50-900-token {open
 		? ''
 		: ' translate-x-full'}"
 >
-	<div class="flex h-full w-full flex-col justify-around py-10">
+	<div class="flex h-full w-full flex-col justify-around pt-10 pb-4">
 		<nav class="list-nav flex-grow">
 			<ul>
 				<li>
@@ -60,3 +60,9 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.sidebar {
+		height: 100dvh !important;
+	}
+</style>
