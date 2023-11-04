@@ -32,8 +32,7 @@
 			// }
 		};
 	}
-	let isDragging = false;
-	$: console.log(isDragging);
+	$: scrollPercent = (scrollY / maxScroll) * 100 > 100 ? 100 : Math.round((scrollY / maxScroll) * 100)
 	let label: HTMLElement;
 </script>
 
@@ -102,16 +101,18 @@
 	</div>
 
 	<!-- <div use:addLabel={label}> -->
-	<div >
+	<div class="translate-y-2">
 		<span
 			use:addLabel
 			class="z-10 sr-only shadow-sm bg-surface-200-700-token
 			text-error-500-400-token rounded-b-[50%] p-1 absolute
-			 top-0 text-xs right-0 font-bold select-none"
+			 top-0 text-xs left-full font-bold select-none transition-transform duration-1000"
 			bind:this={label}
+			style="transform: {scrollPercent > 97 ? 'translateX(-99%)' : 'translateX(0)'}"
+
 		>
-			{(scrollY / maxScroll) * 100 > 100 ? 100 : Math.round((scrollY / maxScroll) * 100)}%
+			{scrollPercent}%
 		</span>
-		<ProgressBar value={scrollY} max={maxScroll} height="h-1" />
+		<ProgressBar value={scrollY < maxScroll ? scrollY : maxScroll } max={maxScroll} height="h-1" />
 	</div>
 </div>
