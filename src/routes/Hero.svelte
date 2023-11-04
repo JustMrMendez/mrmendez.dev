@@ -25,26 +25,30 @@ import { CodeBlock, InputChip } from '@skeletonlabs/skeleton';`;
 <section
 	class="container mx-auto mb-32 flex min-h-[50vh] flex-col justify-around pb-2 md:mt-20 lg:flex-row"
 >
-	<div class="flex flex-col text-left md:text-center lg:w-1/2 lg:text-left">
-		<h1 class="unstyled text-4xl font-bold leading-[4rem] md:text-5xl">Full Stack Develper</h1>
-		<p class="my-3 !text-2xl">
-			Cache every single thing your app could ever do ahead of time, so your code never even has to
-			run at all.
-		</p>
-		<div class="my-10 flex w-full md:justify-center lg:justify-start">
-			<button class="btn variant-filled-primary mr-6">Contact me</button>
-			<button class="btn variant-soft-primary">See Projects</button>
+	<div class="">
+		<div class="flex flex-col text-left md:text-center lg:w-1/2 lg:text-left">
+			<h1 class="unstyled text-4xl font-bold leading-[4rem] md:text-5xl">
+				Innovative Full Stack Developer
+			</h1>
+			<p class="my-3 !text-2xl">
+				Bridging concepts to reality with modern web technologies. Crafting responsive, scalable
+				solutions with a focus on user experience and performance.
+			</p>
+			<div class="my-10 flex w-full md:justify-center lg:justify-start">
+				<button class="btn variant-filled-primary mr-6">Contact me</button>
+				<button class="btn variant-soft-primary">See Projects</button>
+			</div>
 		</div>
 		{#key code}
-		<div class="h-10">
-			<InputChip
-				name="filters"
-				bind:value={tags}
-				padding="mt-10 p-2"
-				placeholder="Search Projects by skills/tags"
-			/>
-		</div>
-	{/key}
+			<div class="h-10 w-fit">
+				<InputChip
+					name="filters"
+					bind:value={tags}
+					padding="mt-10 p-3"
+					placeholder="Search Projects by skills/tags"
+				/>
+			</div>
+		{/key}
 	</div>
 	<div
 		class="w-full rounded-lg bg-surface-800 shadow-md backdrop-blur-lg backdrop-filter dark:bg-surface-600/60"
@@ -66,5 +70,4 @@ import { CodeBlock, InputChip } from '@skeletonlabs/skeleton';`;
 			background="bg-transparent"
 		/>
 	</div>
-
 </section>

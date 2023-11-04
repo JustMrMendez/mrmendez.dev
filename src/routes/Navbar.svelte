@@ -5,12 +5,42 @@
 	export let maxScroll: number;
 	export let scrollY: number;
 	let open = false;
+
+	function addLabel(node: HTMLElement) {
+		console.log(node);
+		// node.style.position = 'relative';
+		if (node) {
+			node.classList.remove('sr-only');
+		}
+		// label.classList.remove('sr-only');
+		let bar = document.querySelector('.progress-bar') as HTMLElement;
+		let barMeter = document.querySelector('.progress-bar-meter') as HTMLElement;
+		if (barMeter && bar) {
+			bar.style.overflow = 'visible';
+			barMeter.style.position = 'relative';
+			barMeter.appendChild(node);
+		}
+
+		return {
+			update(node: HTMLElement) {
+				console.log(node.innerText);
+			},
+			// destroy() {
+			// 	if (label) {
+			// 		label.remove();
+			// 	}
+			// }
+		};
+	}
+	let isDragging = false;
+	$: console.log(isDragging);
+	let label: HTMLElement;
 </script>
 
 <Hamburger bind:open />
 <Sidebar bind:open />
 <div
-	class="sticky top-0 z-10  border-b bg-surface-200/40 py-1 shadow-sm backdrop-blur border-surface-50-900-token dark:bg-surface-900/40 md:px-6"
+	class="sticky top-0 z-10 border-b bg-surface-200/40 py-1 shadow-sm backdrop-blur border-surface-50-900-token dark:bg-surface-900/40 md:px-6"
 >
 	<div class="container mx-auto flex w-full items-center justify-between">
 		<h3 class="-mt-1 p-2 md:p-0">
@@ -22,19 +52,19 @@
 			<ul class="flex items-end">
 				<li>
 					<a
-						class="rounded px-2 transition-all duration-300  hover:!opacity-100 group-hover:opacity-50"
+						class="rounded px-2 transition-all duration-300 hover:!opacity-100 group-hover:opacity-50"
 						href="/">Home</a
 					>
 				</li>
 				<li>
 					<a
-						class="rounded px-2 transition-all duration-300  hover:!opacity-100 group-hover:opacity-50"
+						class="rounded px-2 transition-all duration-300 hover:!opacity-100 group-hover:opacity-50"
 						href="/about">About</a
 					>
 				</li>
 				<li>
 					<a
-						class="rounded px-2 transition-all duration-300  hover:!opacity-100 group-hover:opacity-50"
+						class="rounded px-2 transition-all duration-300 hover:!opacity-100 group-hover:opacity-50"
 						href="/blog">Blog</a
 					>
 				</li>
@@ -70,5 +100,18 @@
 			</a>
 		</div>
 	</div>
-	<ProgressBar label="Progress Bar" value={scrollY} max={maxScroll} height="h-1" /> 
+
+	<!-- <div use:addLabel={label}> -->
+	<div >
+		<span
+			use:addLabel
+			class="z-10 sr-only shadow-sm bg-surface-200-700-token
+			text-error-500-400-token rounded-b-[50%] p-1 absolute
+			 top-0 text-xs right-0 font-bold select-none"
+			bind:this={label}
+		>
+			{(scrollY / maxScroll) * 100 > 100 ? 100 : Math.round((scrollY / maxScroll) * 100)}%
+		</span>
+		<ProgressBar value={scrollY} max={maxScroll} height="h-1" />
+	</div>
 </div>

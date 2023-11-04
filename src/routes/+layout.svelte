@@ -12,13 +12,17 @@
 	storeHighlightJs.set(hljs);
 	let scrollY: number;
 	let maxScroll: number;
+	let maxWidth: number;
 	$: $layout.scrollY = scrollY;
 	$: $layout.maxScroll = maxScroll;
 
 	onMount(() => {
 		// get max scroll height of the page
 		maxScroll = document.body.scrollHeight - window.innerHeight;
+		maxWidth = document.body.scrollWidth - window.innerWidth;
+		console.log('maxScroll', maxScroll);
 	});
+	$: console.log('scrollY', scrollY);
 </script>
 
 <svelte:window bind:scrollY />

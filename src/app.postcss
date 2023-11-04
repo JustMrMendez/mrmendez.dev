@@ -2,3 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+/* disable main scrollbar */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* remove the spacing the scroll bar takes */
+body {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
