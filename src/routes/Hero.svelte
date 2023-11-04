@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { CodeBlock, InputChip } from '@skeletonlabs/skeleton';
-	import MHeadshot from './MHeadshot.svelte';
+	// import MHeadshot from './MHeadshot.svelte';
 
 	let tags: string[] = ['React', 'Typescript', 'State Management'];
 
@@ -35,15 +35,25 @@ import { CodeBlock, InputChip } from '@skeletonlabs/skeleton';`;
 			<button class="btn variant-filled-primary mr-6">Contact me</button>
 			<button class="btn variant-soft-primary">See Projects</button>
 		</div>
+		{#key code}
+		<div class="h-10">
+			<InputChip
+				name="filters"
+				bind:value={tags}
+				padding="mt-10 p-2"
+				placeholder="Search Projects by skills/tags"
+			/>
+		</div>
+	{/key}
 	</div>
 	<div
 		class="w-full rounded-lg bg-surface-800 shadow-md backdrop-blur-lg backdrop-filter dark:bg-surface-600/60"
 	>
 		<!-- <div class="overflow-hidden rounded-lg bg-white bg-opacity-10"> -->
-		<div class="flex items-center rounded-t-lg p-2 bg-primary-50-900-token">
-			<div class="mr-2 h-2 w-2 rounded-full bg-red-500" />
-			<div class="mr-2 h-2 w-2 rounded-full bg-yellow-400" />
-			<div class="mr-2 h-2 w-2 rounded-full bg-primary-500" />
+		<div class="flex gap-2 items-center rounded-t-lg p-2 bg-primary-50-900-token">
+			<div class="h-2 w-2 rounded-full bg-red-500" />
+			<div class="h-2 w-2 rounded-full bg-yellow-400" />
+			<div class="h-2 w-2 rounded-full bg-primary-500" />
 		</div>
 		<!-- make code block editable -->
 		<CodeBlock
@@ -56,46 +66,5 @@ import { CodeBlock, InputChip } from '@skeletonlabs/skeleton';`;
 			background="bg-transparent"
 		/>
 	</div>
-	<!-- </div> -->
-	{#key code}
-		<div class="h-10">
-			<InputChip
-				name="filters"
-				bind:value={tags}
-				padding="mt-10 p-2"
-				placeholder="Search Projects by skills/tags"
-			/>
-		</div>
-	{/key}
-	<!-- <div class="input-group input-group-divider mt-10 grid-cols-[auto_1fr_auto] lg:hidden">
-		<div class="input-group-shim">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				stroke="currentColor"
-				class="h-6 w-6"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-				/>
-			</svg>
-		</div>
-		<input type="search" class="px-5" placeholder="Search..." />
-		<button class="variant-filled-secondary">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1"
-				stroke="currentColor"
-				class="h-6 w-6"
-			>
-				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-			</svg></button
-		>
-	</div> -->
+
 </section>
