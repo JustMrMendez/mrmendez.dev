@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { CodeBlock, InputChip } from '@skeletonlabs/skeleton';
+	import Conbobox from '$lib/ui/Conbobox.svelte';
+import { CodeBlock, InputChip } from '@skeletonlabs/skeleton';
 	// import MHeadshot from './MHeadshot.svelte';
 
 	let tags: string[] = ['React', 'Typescript', 'State Management'];
